@@ -11,9 +11,9 @@ const router = Router();
 
 router.use(authMiddleware);
 
-router.post("/", createTransaction);
-router.get("/", getTransactions);
-router.get("/:id", getTransactionById);
-router.get("/statistics", getStatistics);
+router.post("/", authMiddleware, createTransaction);
+router.get("/", authMiddleware, getTransactions);
+router.get("/statistics", authMiddleware, getStatistics);
+router.get("/:id", authMiddleware, getTransactionById);
 
 export default router;
